@@ -65,7 +65,7 @@
 	jcsf = "CSF"+csf;
 	//alert(csf);
 	//$('input[name=postURL]').val(jcsf);
-    loginUrl = "http://voiceportal.newyorklife.com/Jabber/Login/call/xml/EMServiceProdLogin?dvn=" + csf;
+    loginUrl = "http://local/Jabber/Login/call/xml/EMServiceProdLogin?dvn=" + csf;
 	//alert(loginUrl);
 	//msgtext = "Command being executed";
 	$.ajax({
@@ -92,8 +92,8 @@
 					   changeBackgroundColorYellow();
 	};
 function userStatus(){
-	userurl = "https://voiceportal.newyorklife.com/Jabber/Login/call/xml/EMServiceUserQuery?dvn=T15BU9J";
-	//userurl = "https://voiceportal.newyorklife.com/Jabber/Login/call/xml/EMServiceProdLogin?dvn=T15BU9J";
+	userurl = "https://local/Jabber/Login/call/xml/EMServiceUserQuery?dvn=T15BU9J";
+	//userurl = "https://local/Jabber/Login/call/xml/EMServiceProdLogin?dvn=T15BU9J";
 	//alert("User Status");
 	//alert(userurl);
 	$.ajax({
@@ -117,7 +117,7 @@ function userDeviceQuery(){
 	dvn = $('input[name=testcsfname]').val();
 	//alert(dvn);
 	//dvn = "T15BB9J";
-    url="http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMSUserDeviceQuery?dvn=" + dvn;
+    url="http://local/Jabber/Login/call/json/EMSUserDeviceQuery?dvn=" + dvn;
 	//alert(url);
 	$.ajax({
          type: 'Get',
@@ -145,7 +145,7 @@ function deviceUserQuery(){
 	//alert("DeviceUserQuery");
 	dvn = $('input[name=testcsfname]').val();
 	//dvn = "T15BB9J";
-    url="http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMSDeviceUserQuery?dvn=" + dvn;
+    url="http://local/Jabber/Login/call/json/EMSDeviceUserQuery?dvn=" + dvn;
 	//alert(url);
 	$.ajax({
          type: 'Get',
@@ -180,7 +180,7 @@ function deviceProfileQuery(){
 	
 	dvn = $('input[name=testcsfname]').val();
 	//dvn = "T15BB9J";	
-    url="http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMSDeviceProfileQuery?dvn=" + dvn;
+    url="http://local/Jabber/Login/call/json/EMSDeviceProfileQuery?dvn=" + dvn;
 	//alert(url);
 	$.ajax({
          type: 'Get',
@@ -224,7 +224,7 @@ async function testLogin(){
     $("label[for='testLogout']").html("");
 	//csf = "T15BU9J";
 	jcsf = "CSF"+csf;
-	loginUrl = "http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMSAPIProdLogin?dvn=" + csf;
+	loginUrl = "http://local/Jabber/Login/call/json/EMSAPIProdLogin?dvn=" + csf;
 	const res = await fetch(loginUrl);	
 	if (res.ok) {
 	    const data = await res.json();			
@@ -290,7 +290,7 @@ function testLogout(){
 	var csf = $('input[name=csfname]').val();
 	//csf = "T15BU9J";
 	jcsf = "CSF"+csf;
-	logoutUrl = "http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMLogout?dvn=" + csf;
+	logoutUrl = "http://local/Jabber/Login/call/json/EMLogout?dvn=" + csf;
     //alert(logoutUrl);
 $.ajax({
          type: 'Get',
@@ -319,7 +319,7 @@ function testLogin2(){
 	dvn = $('input[name=testcsfname]').val();
 	//alert(dvn);
 	//dvn = "T15BB9J";
-    url="http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMSUserDeviceQuery?dvn=" + dvn;
+    url="http://local/Jabber/Login/call/json/EMSUserDeviceQuery?dvn=" + dvn;
 	//alert(url);
 	$.ajax({
          type: 'Get',
@@ -394,7 +394,7 @@ async function testLogout2(){
 	var csf = $('input[name=csfname]').val();
 	//csf = "T15BU9J";
 	jcsf = "CSF"+csf;
-	logoutUrl = "http://voiceportal.newyorklife.com/Jabber/Login/call/json/EMLogout?dvn=" + csf;
+	logoutUrl = "http://local/Jabber/Login/call/json/EMLogout?dvn=" + csf;
     //alert(logoutUrl);
 	
 	const res = await fetch(logoutUrl);		
