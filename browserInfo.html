@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Attributes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        #browser-info {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .attribute {
+            margin-bottom: 10px;
+        }
+        .attribute-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Browser Attributes</h1>
+    <div id="browser-info"></div>
+
+    <script>
+        function getBrowserAttributes() {
+            const attributes = {
+                'User Agent': navigator.userAgent,
+                'Browser Name': navigator.appName,
+                'Browser Version': navigator.appVersion,
+                'Platform': navigator.platform,
+                'Cookies Enabled': navigator.cookieEnabled,
+                'Language': navigator.language,
+                'Online': navigator.onLine,
+                'Java Enabled': navigator.javaEnabled(),
+                'Screen Width': screen.width,
+                'Screen Height': screen.height,
+                'Color Depth': screen.colorDepth,
+                'Pixel Depth': screen.pixelDepth,
+                'Available Width': screen.availWidth,
+                'Available Height': screen.availHeight,
+                'Window Inner Width': window.innerWidth,
+                'Window Inner Height': window.innerHeight,
+                'Window Outer Width': window.outerWidth,
+                'Window Outer Height': window.outerHeight,
+                'Device Pixel Ratio': window.devicePixelRatio,
+                'Document Mode': document.documentMode,
+                'Referrer': document.referrer,
+                'Protocol': location.protocol,
+                'Host': location.host,
+                'Pathname': location.pathname,
+                'Local Storage Supported': typeof(Storage) !== "undefined",
+                'Session Storage Supported': typeof(sessionStorage) !== "undefined",
+                'Web Worker Supported': typeof(Worker) !== "undefined",
+                'Geolocation Supported': 'geolocation' in navigator,
+                'Web GL Supported': (function() {
+                    try {
+                        return !!window.WebGLRenderingContext && !!document.createElement('canvas').getContext('experimental-webgl');
+                    } catch(e) {
+                        return false;
+                    }
+                })(),
+                'Touch Supported': 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0
+            };
+
+            return attributes;
+        }
+
+        function displayBrowserAttributes() {
+            const attributes = getBrowserAttributes();
+            const browserInfoDiv = document.getElementById('browser-info');
+
+            for (const [key, value] of Object.entries(attributes)) {
+                const attributeDiv = document.createElement('div');
+                attributeDiv.className = 'attribute';
+                attributeDiv.innerHTML = `<span class="attribute-name">${key}:</span> ${value}`;
+                browserInfoDiv.appendChild(attributeDiv);
+            }
+        }
+
+        displayBrowserAttributes();
+    </script>
+</body>
+</html>
